@@ -107,6 +107,7 @@ words words words words words words words words words words words words words wo
 \vfill
 \end{titlepage}
 \newpage
+\setcounter{page}{1}
 \tableofcontents
 \thispagestyle{empty}
 \newpage
@@ -118,7 +119,7 @@ words words words words words words words words words words words words words wo
 NOMENCLATURE
 \thispagestyle{empty}
 \newpage
-\setcounter{page}{1}
+%\setcounter{page}{1}
 %-------------------------------------------------------------------------------
 % Section title formatting
 %\sectionfont{\scshape}
@@ -129,49 +130,48 @@ NOMENCLATURE
 %-------------------------------------------------------------------------------
 
 \section{Introduction}
-% •	Overview of group project
-% •	Describe my technical role, the heading, overall responsibility
-% •	Areas of Technical input (requirements)
-% •	Describe Structure of report
+•	Overview of group project\\
+•	Describe my technical role, the heading, overall responsibility\\
+•	Areas of Technical input (requirements)\\
+•	Describe Structure of report
 
 \section{Technical Overview}
-An overview of the design process for this specialisation can be seen in  Figure ADDREF.
-\begin{figure}[H]
-	\flushright
-	\includegraphics[width=0.4\textwidth]{Flowchart.PNG}
-	\caption{Design process}
-	\centering
-	\label{fig:flowchart}
-\end{figure}
-% \begin{wrapfigure}[15]{r}{5.5cm}
-%     \includegraphics[width=5cm]{Flowchart.PNG}
-%     \caption{A rotating parachute design for submunitions \cite{DOHERR1992Nine-degree-of-freedomSystems}}
-%     \label{fig:doherr}
-%     %\vspace{-510pt}
-% \end{wrapfigure}
-ggr
-rrr
-r
-r
-r
-r
-r
-rr
+An overview of the design process for this specialisation can be seen in  Figure \ref{fig:flow}.
+% \begin{figure}[H]
+% 	\flushright
+% 	\includegraphics[width=0.4\textwidth]{Flowchart.PNG}
+% 	\caption{Design process}
+% 	\centering
+% 	\label{fig:flowchart}
+% \end{figure}
+\begin{wrapfigure}[10]{r}{7.7cm}
+    \includegraphics[width=7cm]{Flowchart.PNG}
+    \caption{A rotating parachute design for submunitions}
+    \label{fig:flow}
+    \vspace{-510pt}
+\end{wrapfigure}
+\\
 
-rr
-r
 %INSERT FANCY FLOWCHART
-
+\newpage
 \section{Mass Distribution}
 \subsection{Mass Breakdown}
 % Describe how mass considerations influenced design process.
 % Table of mass breakdown, pie chart
 % Passenger and luggage loadout. configurations. CG affected in 3D. Show CG V loading. Show 3D plot.
 % Say that median CG location used for trim design so that passenger comfort at extreme loadouts.
-The mass breakdown and key weights can be seen in Figure \ref{fig:pie} and Table \ref{tab:tabmass}. While the moments of inertia of the empty helicopter can be seen in Table \ref{tab:tabinertia}.
+The mass considerations played a very important role in the design of this aircraft. The aim was to remain classified under CS-27 and the weight limit of SC-VTOL-01. This set a hard upper limit of $3175kg$. The project specifications stated a payload of $450kg$ however, a requirement under JAR-OPS3 meant the payload had to be set to $550kg$. The challenges of minimising weight through battery technology selection, motor selection, drive-train design, rotor design, etc proved to be a lengthy iterative process that benefited from creating tools that could be used to quickly check various aspects of weight and balance. 
+
+The final mass breakdown and key weights can be seen in Figure \ref{fig:pie} and Table \ref{tab:tabmass} respectively. While the moments of inertia of the empty helicopter can be seen in Table \ref{tab:tabinertia}.
 \begin{table}[H]
 	\begin{minipage}{0.5\linewidth}
-		\caption{Table of key weights}
+	\centering
+		\includegraphics[width=\textwidth]{PIE.PNG}
+		\captionof{figure}{Pie chart showing mass breakdown of components}
+		\label{fig:pie}
+	\end{minipage}\hfill
+	\begin{minipage}{0.48\linewidth}
+			\caption{Table of key weights}
 		\label{tab:tabmass}
 		\centering
 \begin{tabular}{cc}
@@ -193,37 +193,33 @@ $I_{y_{CG}}$        & 3574.35 \\ \hline
 $I_{x_{CG}}$        & 2455.47 \\ \hline
 $I_{z_{CG}}$        & 1118.88 \\ \hline
 \end{tabular}
-	\end{minipage}\hfill
-	\begin{minipage}{0.45\linewidth}
-		\centering
-		\includegraphics[width=\textwidth]{PIE.PNG}
-		\captionof{figure}{Pie chart showing mass breakdown of components}
-		\label{fig:pie}
 	\end{minipage}
 \end{table}
-A more detailed breakdown can be seen in Appendix \ref{tab:massb}.
+The moments of inertia were calculated assuming point masses. A more detailed mass breakdown can be seen in Appendix \ref{tab:massb}.
 \subsection{Centre of Gravity Variation}
-Following the finalisation of component masses and positions, the centre of gravity range, as it varies with payload loadout, was calculated in 3D. The assumptions were that each human being weighed 90kg, and each passenger had the option of carrying up to 25kg of luggage each. This formed the total payload mass of 550kg, set by JAR-OPS3. Every component was assumed to be a point mass. For every flight case the pilot was assumed present.
+Following the finalisation of component masses and positions, the centre of gravity range, as it varies with payload loadout, was calculated in 3D. The assumptions were that each human being weighed 90kg, and each passenger had the option of carrying up to 25kg of luggage each. This formed the total payload mass of 550kg. Every component was assumed to be a point mass. For every flight case the pilot was assumed present.
 The longitudinal CG against AUW can be seen in Figure \ref{fig:CG1} and the 3D CG envelope can be seen in Figure \ref{fig:CG2}.
 
 \begin{figure}[H]
 \centering
 \begin{minipage}{.5\textwidth}
   \centering
-  \includegraphics[width=\linewidth]{CGVAUW.eps}
+  \includegraphics[width=\linewidth]{CGLONGVAUW.eps}
   \captionof{figure}{Longitudinal CG versus AUW}
   \label{fig:CG1}
 \end{minipage}%
 \begin{minipage}{.5\textwidth}
   \centering
-  \includegraphics[width=\linewidth]{3D.PNG}
+  \includegraphics[width=\linewidth]{CG3D.eps}
   \captionof{figure}{3D CG Envelope}
   \label{fig:CG2}
 \end{minipage}
 \end{figure}
 
 Lateral and vertical CG envelopes can be seen in Appendix \ref{fig:CGlat}.
-It was found that the CG location when empty lay 3mm forward of the centre of the main shaft and the largest deviation case consisted of 3 passengers, two in the front and one at the rear, without any luggage this is the leftmost point in Figure \ref{fig:CG1}. This resulted in a maximum deviation of 10.5cm forward of the main rotor, which is the preferred direction for stability \cite{prouty} and is relatively small. As can been seen in Figure \ref{fig:CG2}, in almost all cases the CG lies within the 20cm diameter rotor shaft.\\ This favourable CG envelope was a result of placing the heaviest components such as the gearbox, batteries and motors as close to the centre of the cabin as possible. During the design process it was evident that for structural reasons the main rotor would be better placed in the centre of the cabin, to achieve this the centre of mass had to be moved forward and so following a trade study, Appendix \ref{fig:batterypos}, the battery was moved under the floor of the cabin.
+It was found that the CG location when empty lay 3mm forward of the centre of the main shaft and the largest deviation case consisted of 3 passengers, two in the front and one at the rear without any luggage, this is the leftmost point in Figure \ref{fig:CG1}. This resulted in a maximum deviation of 10.5cm forward of the main rotor, which is the preferred direction for stability and is relatively small\cite{prouty}. As can been seen in Figure \ref{fig:CG2}, in almost all cases the CG lies within the 20cm diameter rotor shaft. From this, it is advisable that when loading the aircraft to direct passengers to fill the rear seats first.
+
+This favourable CG envelope was a result of placing the heaviest components such as the gearbox, batteries and motors as close to the centre of the cabin as possible. During the design process it was evident that for structural reasons the main rotor would be better placed in the centre of the cabin, to achieve this the centre of mass had to be moved forward and so following a trade study, Appendix \ref{fig:batterypos}, the battery was moved under the floor of the cabin.
 
 The CG range information was used to inform the design of the helicopter skids so as to satisfy the 12 degree inclination requirement. Following structural design and ground resonance considerations, which can be seen in the structures and rotor hub specialist reports respectively, the final skids allow for an on-ground inclination of 37.6 degrees. This is assuming worst case CG (empty).\\
 
@@ -236,11 +232,11 @@ Increasing passenger comfort can be done by minimising the fuselage pitch deviat
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{FBD.PNG}
-    \caption{Diagram showing key forces and moments}
+    \caption{Diagram showing key forces and moments (adapted from Padfield \cite{padfield})}
     \label{fig:fbd}
 \end{figure}{}
 During forward flight the rotor must tilt forward to balance the forces generated by the drag of the fuselage.
-In a standard helicopter with zero shaft tilt and an articulated hub the fuselage would also tilt forward slightly with the rotor disc, with the remainder of the tilt being fulfilled by the rotor flapping angle. 
+In a typical helicopter with zero shaft tilt and an articulated hub the fuselage would also tilt forward slightly with the rotor disc, with the remainder of the tilt being fulfilled by the rotor flapping angle. 
 However, large fuselage pitch angles are not very comfortable and so it is possible to have the rotor shaft fixed at a forward angle reduce fuselage pitch during cruise. This does have the drawback of increasing the fuselage pitch and flapping angle during hover and so a balance must be struck.
 
 In addition, rotors with a blade hinge offset are able to impart moments onto the aircraft, this hub moment can be described by equation ADDREF. This is beneficial as it allows the aircraft to counter the moment created by not having a centre of mass exactly below the line of action of the rotor. This means it is able to force the fuselage to stay relatively parallel to the ground even in unfavourable CG conditions, much more so than if there was no hinge offset in which case the aircraft would simply tilt until the CG was directly under the main rotor. In this project, the hinge offset was calculated by the rotor blade and rotor hub specialists so as to reduce resonance and vibration. Details of its determination can be found in those reports.
@@ -276,6 +272,12 @@ The location of the horizontal stabiliser has been placed $5$ meters behind the 
 
 The equations used can be seen in Appendix ADDREF\\
 
+Hover Trim Equations
+\begin{align}
+    a_{\mathrm{1s}}=-\frac{T\,\left(h_{r}\,\gamma-x_{\mathrm{cg}}+\frac{D_{\mathrm{fZ}}\,l_{f}}{\mathrm{mg}}+\frac{D_{\mathrm{hZ}}\,l_{t}}{\mathrm{mg}}\right)}{\frac{dM_m}{da_{1s}}+T\,h_{r}}\\
+    T=-\frac{\mathrm{mg}}{\frac{D_{\mathrm{fZ}}}{\mathrm{mg}}+\frac{D_{\mathrm{hZ}}}{\mathrm{mg}}-1}
+\end{align}{}
+
 EQUATIONS HERE\\
 
 A note on lateral stability and trim, unlike a penny-farthing a coaxial helicopter does not suffer from the lateral stability issues caused by the presence of a tail rotor, i.e side-slip, gust alleviation issues etc. Therefore, the lateral stability considerations are almost identical to that of longitudinal with the exception of that fact that the requirements in this direction are much reduced, CG positions change very little laterally and rotor flapping has no additional constraints either as the aircraft is not expected to fly sideways at any significant speed.
@@ -307,8 +309,6 @@ The maximum and minimum values for pitch angles and flapping angles for both cru
   \label{fig:hshaftflap}
 \end{minipage}
 \end{figure}
-
-
 \begin{figure}[H]
 \centering
 \begin{minipage}{.49\textwidth}
@@ -324,7 +324,6 @@ The maximum and minimum values for pitch angles and flapping angles for both cru
   \label{fig:cruiseflap}
 \end{minipage}
 \end{figure}
-
 It is clear from the above figures that the individual relationships are approximately linear.
 From Figure \ref{fig:hshaftpitch}, it can be seen that increasing the forward tilt of the rotor shaft results in increasing the nose-up pitch during hover. Figure \ref{fig:hshaftflap}, shows a similar trend with the hover flapping angle, this flapping angle proved to be the limiting factor when increasing shaft tilt.
 
@@ -362,7 +361,7 @@ This resulted in only two out of the $225$ tested combinations satisfying the co
     \label{tab:long}
 \end{table}{}
 
-The only differing value between the cases in Table \ref{tab:long} is the Tail Force, suggesting differing cruise characteristics. The cruise characteristics of the two cases were plotted together, Figure \ref{fig:cases} and as the relationship between the individual parameters has been observed to be linear the points were joined by a straight line.
+The only differing value between the cases in Table \ref{tab:long} is the Tail Force, suggesting differing cruise characteristics. The cruise characteristics of the two cases were plotted together, Figure \ref{fig:cases}, and as the relationship between the individual parameters has been observed to be linear the points were joined by a straight line.
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.9\textwidth]{cases.eps}
@@ -370,7 +369,40 @@ The only differing value between the cases in Table \ref{tab:long} is the Tail F
     \label{fig:cases}
 \end{figure}{}
 
-This plot allowed the crossings of the maximum angles and minimum angles to be found, the Tail force chosen was the mid point of these crossings which can be seen in Figure \ref{fig:cases}. This can be said to be the optimum Tail force for this shaft tilt, assuming the flapping and pitch angles are weighted equally at this stage. Thus, the final configuration is a Shaft Tilt of $\gamma=-3.86$ degrees and a Tail Force of $L_t=686.8N$.
+This plot allowed the crossings of the maximum angles and minimum angles to be found. Ordinarily a double plot could not be used to directly relate two variables to each other, however, as the $y$-limits have been approximately matched graphically the crossings observed would correspond roughly to a minimum of the two. The Tail force chosen was the mid point of these crossings which can be seen in Figure \ref{fig:cases}. This can be said to be the optimum Tail force for this shaft tilt, assuming the flapping and pitch angles are weighted equally at this stage. Thus, the final configuration is a Shaft Tilt of $\gamma=-3.86$ degrees and a Tail Force of $L_t=686.8N$.
+
+The resulting maximum and minimum pitch angles and flapping angles can be seen in Table \ref{tab:cgres}, while full results for each CG location can be seen in plots in Appendix \ref{fig:CGHOVERP}.
+\begin{table}[H]
+\centering
+\caption{Table showing limits of rotor flapping and fuselage pitch angles for chosen design accounting for all CG positions}
+\begin{tabular}{c|c|c|c|c|}
+\cline{2-5}
+                                                & \multicolumn{2}{c}{\cellcolor[HTML]{DAE8FC}Cruise}                             & \multicolumn{2}{c|}{\cellcolor[HTML]{DAE8FC}Hover}        \\ \cline{2-5} 
+                                                & \multicolumn{1}{c|}{\cellcolor[HTML]{DAE8FC}Min} & \cellcolor[HTML]{DAE8FC}Max & \cellcolor[HTML]{DAE8FC}Min & \cellcolor[HTML]{DAE8FC}Max \\ \hline
+\multicolumn{1}{|c|}{Fuselage Pitch Angle, deg} & \multicolumn{1}{c|}{-1.65}                       & 1.44                        & -1.80                       & 0.90                        \\ \hline
+\multicolumn{1}{|c|}{Long. Flapping Angle, deg} & \multicolumn{1}{c|}{-5.72}                       & -2.96                       & 2.96                        & 5.66                        \\ \hline
+\end{tabular}
+\label{tab:cgres}
+\end{table}
+From this value of tail force it was possible to obtain the specifications of the horizontal stabiliser. The equation for lift is $L_t=\frac{1}{2}\rho V^2 S_h C_{l_\alpha}(\theta_f+\phi_{setting})$, NACA2410 was chosen based on it's high lift/drag ratio and high $C_{l_\alpha}$. The previous code also included the drag of the stabiliser as the setting angle is varied,for a set $S_h$. This area was decided based on observing existing helicopters' size proportionally to the main rotors. The code produced a setting angle that would be required to fulfil trim. The final specifications can be seen in Table \ref{tab:longfinal}.
+
+\begin{table}[H]
+\centering 
+    \caption{Table showing final specifications}
+\begin{tabular}{cc}
+\hline
+  \rowcolor[HTML]{DAE8FC} 
+  Parameter & Value \\ \hline
+   Shaft Tilt, $\gamma$ & $-3.86$ deg\\
+   Tail Force, $L_t$ & $686.8N$\\
+   Aerofoil of H. Stabiliser & NACA2410\\
+   Area of H. Stabiliser & $0.61m^2$\\
+   Setting Angle, $\phi_h$ & $9.8$ deg\\
+   \hline
+\end{tabular}{}
+    \label{tab:longfinal}
+\end{table}{}
+
 % It was decided to optimise for minimising the delta between fuselage tilt in hover and in cruise. This allows the option the tilting seating to compensate for a near constant fuselage tilt throughout the journey. The absolute values will be checked after to ensure on ground tilt is not extreme. A surface plot of this delta, $\theta_{f_{hover}}-\theta_{f_{cruise}}$, can be seen in Figure ADDREF.
 
 % Two points were selected along the intersection of this surface and the zero plane and were used to derive the equation of the line that represents the configurations optimised for pitch delta, $\gamma=h(L_t)$.
@@ -392,27 +424,11 @@ This plot allowed the crossings of the maximum angles and minimum angles to be f
 %         \text{Energy Consumption}&\propto 0.9*a_{1s_{cruise}}+0.1*a_{1s_{hover}}
 % \end{align}{}
 
+\subsection{Discussion}
+
+The objective of this section was to determine a shaft tilt and a horizontal stabiliser design
 
 
-
-
-% PLOTS
-
-% From PLOTS it can be seen that the relationships are mostly linear.
-
-DISCUSSION
-
-The end result of the model is a shaft tilt angle and tailplane force.
-The model results give flapping angle and fuselage pitch angles in both hover and cruise.
-The criteria is that fuselage pitch should  be as small as possible (ideally 0), in all cases for comfort.
-The flapping angle should also be kept to a minimum (ideally 0) to conserve power.
-If both are set to zero then either the helicopter will not be able to move forward or will not be able to hover.
-
-Percentage of time in hover. 
-
-Minimise delta between fuselage angle in hover and cruise. If large angle for both then tilt seats to compensate.
-
-Equation of line of intersection of planes of fuselage pitch delta and zero. Use that line and calculate energy efficiency (flapping angle). Fuel consumption based on mission. flapping in hover (*0.1) + cruise (*0.9).
 
 \section{Vertical Stabiliser Sizing}
 
@@ -434,7 +450,7 @@ In a conventional penny-farthing helicopter the vertical stabiliser may be desig
 The design process was to create a dynamic model of the damping effects of the vertical stabiliser, use the model to obtain initial sizing for a desired damping ratio identified from literature, which is approximately 0.45 \cite{prouty}. Basic active rudder control was added to the model for comparison, allowing a decision to be made whether to opt for the actively controlled system or not for a specific damping ratio.
 \subsection{Modelling}
 \subsubsection{Vertical Stabiliser}
-The dynamic model was created using NACA0006, chosen for its symmetry and relatively high L/D ratio and lift curve slope. The model excludes any effects of the main rotors and damping effect of the fuselage, small angles are assumed. The yaw moment of inertia of the helicopter,$I_{xy}=1118.8 kgm^2$ was used. The quarter-chord of the fin was placed $5m$ behind the CG of the helicopter ($l=5m$) to avoid downwash effects. 
+The dynamic model was created using the lift curve slope of NACA0006. The model excludes any effects of the main rotors and damping effect of the fuselage, small angles are assumed. The yaw moment of inertia of the helicopter,$I_{xy}=1118.8 kgm^2$ was used. The quarter-chord of the fin was placed $5m$ behind the CG of the helicopter ($l=5m$) to avoid downwash effects. 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.9\textwidth]{VertStabdiag.PNG}
@@ -509,7 +525,11 @@ Future work may be done to assess the rudder's use as a method of yaw control th
 
 \section{Summary and Conclusions}
 
+\section{Reflection}
 
+Weights required input from team members, tests required close cooperation with performance specialist and battery and drive-train specialist. Feedback to rest of team.
+
+Every major decision was done as a group with the help of trade study tables. Constant clear communication was key.
 %-------------------------------------------------------------------------------
 % REFERENCES
 %-------------------------------------------------------------------------------
@@ -523,7 +543,7 @@ Simulation Modelling. Second ed., Blackwell Publishing, 2007
 %-------------------------------------------------------------------------------
 
 \begin{appendices}
-\addcontentsline{toc}{section}{APPENDIX}
+%\addcontentsline{toc}{section}{APPENDIX}
 \renewcommand\thefigure{A.\arabic{figure}}  
 \setcounter{figure}{0}
 
@@ -552,26 +572,17 @@ Payload                        & 550                             \\ \hline
 \end{tabular}
 \label{tab:massb}
 \end{table}
-
-
-\begin{figure}[H]
-	\includegraphics[width=0.2\textwidth]{Legend.PNG}
-	\label{fig:batterypos}
-\end{figure}
-
-
-
 \begin{figure}[H]
 \centering
 \begin{minipage}{.5\textwidth}
   \centering
-  \includegraphics[width=\linewidth]{CGLAT.eps}
+  \includegraphics[width=\linewidth]{CGLATVAUW.eps}
   \captionof{figure}{Lateral CG versus AUW}
   \label{fig:CGlat}
 \end{minipage}%
 \begin{minipage}{.5\textwidth}
   \centering
-  \includegraphics[width=\linewidth]{CGVERT.eps}
+  \includegraphics[width=\linewidth]{CGVERTVAUW.eps}
   \captionof{figure}{Vertical CG versus AUW}
   \label{fig:CGvert}
 \end{minipage}
@@ -586,7 +597,41 @@ Payload                        & 550                             \\ \hline
 	\centering
 	\label{fig:batterypos}
 \end{figure}
+
+\begin{figure}[H]
+\centering
+\begin{minipage}{.49\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{CGCRUISEP.eps}
+  \captionof{figure}{Figure showing cruise pitch angles for each CG position for chosen design}
+  \label{fig:CGCRUISEP}
+\end{minipage}\hspace{0.2cm}
+\begin{minipage}{.49\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{CGHOVERP.eps}
+  \captionof{figure}{Figure showing hover pitch angles for each CG position for chosen design}
+  \label{fig:CGHOVERP}
+\end{minipage}
+\end{figure}
+\begin{figure}[H]
+\centering
+\begin{minipage}{.49\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{CGCRUISEF.eps}
+  \captionof{figure}{Figure showing cruise flapping angles for each CG position for chosen design}
+  \label{fig:CGCRUISEF}
+\end{minipage}\hspace{0.2cm}
+\begin{minipage}{.49\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{CGHOVERF.eps}
+  \captionof{figure}{Figure showing hover flapping angles for each CG position for chosen design}
+  \label{fig:CGHOVERF}
+\end{minipage}
+\end{figure}
 \end{appendices}{}
+
+
+
 \end{document}
 
 %%NOTES
