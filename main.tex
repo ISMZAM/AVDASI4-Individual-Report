@@ -49,13 +49,13 @@
   \ifstrequal{#1}{A}{Abbreviations}{%
   \ifstrequal{#1}{N}{Subscripts}{}}}%
   ]}
-  \renewcommand{\nomname}{List of Symbols}
+  \renewcommand{\nomname}{List of Abbreviations and Symbols}
 %
 \lhead{{\small Team 2R I. Zaman}}
 %
 \chead{{\small Weight and Balance, Stability \& Control}}
 %
-% \rhead{\includegraphics[height=5mm]{Logo.png}}
+ \rhead{\includegraphics[height=5mm]{Logo.png}}
 %
 \cfoot{\thepage}
 \renewcommand{\headrulewidth}{1pt}
@@ -133,7 +133,7 @@ for an Electric Urban Air Vehicle }}
 %\thispagestyle{empty}
 \newpage
 \listoftables
-
+\newpage
 \listoffigures
 \newpage
     \nomenclature[A]{$CG$}{Centre of Gravity}
@@ -141,6 +141,7 @@ for an Electric Urban Air Vehicle }}
     \nomenclature[A]{AUW}{All Up  Weight}
     \nomenclature[A]{MZFW}{Max Zero Fuel Weight}
      \nomenclature[A]{OWE}{Operational Weight Empty}
+      \nomenclature[A]{NACA}{National Advisory Committee for Aeronautics}
     \nomenclature[S]{$I_{CG}$}{Second moment of inertia about CG, subscript refers to axis}
     \nomenclature[S]{W,mg}{Aircraft weight}
     \nomenclature[S]{M}{Moment, subscript refers to the part that generates the moment }
@@ -170,6 +171,7 @@ for an Electric Urban Air Vehicle }}
               \nomenclature[N]{$v$}{Vertical Stabiliser}
               \nomenclature[N]{$tp$}{Vertical Static Fin}
               \nomenclature[N]{$R$}{Rudder}
+              \nomenclature[N]{$f$}{Fuselage}
 
  
 \printnomenclature
@@ -215,7 +217,7 @@ The information required from other specialisations are the masses and locations
 It came to a point in the project where it was decided to freeze the specifications of the major components, namely the batteries, drive system, blades, cabin layout and structural members. So that final numbers could be calculated performance wise and to allow final design of trim and stability.
 Once the design freeze had taken place, the masses and positions of each component were consolidated and that allowed the final CG envelope to be produced. This was done by obtaining the CG of the empty aircraft, and then permutating the layout of passengers and luggage to obtain the full range CG positions in 3D. This allowed the minimum dimensions of the landing skids to be found. 
 
-Next, longitudinal trim and shaft tilt had to be determined. This section constituted the most time consuming part of this specialisation. The shaft tilt and horizontal stabiliser design had to be determined simultaneously 
+Next, longitudinal trim and shaft tilt had to be determined. This section constituted the most time consuming part of this specialisation. The shaft tilt and horizontal stabiliser design had to be determined simultaneously as both had to satisfy a sum of moments and forces. A parameter sweep of the shaft tilt and horizontal tail force was performed and this 
 
 
 
@@ -228,18 +230,53 @@ Next, longitudinal trim and shaft tilt had to be determined. This section consti
 % Table of mass breakdown, pie chart
 % Passenger and luggage loadout. configurations. CG affected in 3D. Show CG V loading. Show 3D plot.
 % Say that median CG location used for trim design so that passenger comfort at extreme loadouts.
-The mass considerations played a very important role in the design of this aircraft. The aim was to remain classified under CS-27 and the weight limit of SC-VTOL-01 \cite{cs27}\cite{scvtol}. This set a hard upper limit of $3175kg$. If this was exceeded then the aircraft would be classified under CS-29 which would entail a large redesign and possibly limit its usefulness in densely populated cities. The project specifications stated a payload of $450kg$ however, a requirement under JAR-OPS3 meant the payload had to be set to $550kg$ \cite{jarops3}. The challenges of minimising weight through battery technology selection, motor selection, drive-train design, rotor design, etc proved to be a lengthy iterative process that benefited from creating tools that could be used to quickly check various aspects of weight and balance. 
+The mass considerations played a very important role in the design of this aircraft. The aim was to remain classified under CS-27 and the weight limit of SC-VTOL-01 \cite{cs27}\cite{scvtol}. This set a hard upper limit of $3175kg$. If this was exceeded then the aircraft would be classified under CS-29 which would entail a large redesign and possibly limit its usefulness in densely populated cities. The project specifications stated a payload of $450kg$ however, a requirement under JAR-OPS3 meant the payload had to be set to $550kg$ \cite{jarops3}.
 
 The final mass breakdown and key weights can be seen in Figure \ref{fig:pie} and Table \ref{tab:tabmass} respectively. A more detailed mass breakdown can be seen in Appendix \ref{tab:massb}.
-\begin{table}[H]
-	\begin{minipage}{0.5\linewidth}
-	\centering
-		\includegraphics[width=\textwidth]{PIE.PNG}
+\begin{figure}[H]
+\centering
+		\includegraphics[width=0.9\textwidth]{PIE2.PNG}
 		\captionof{figure}{Pie chart showing mass breakdown of components}
 		\label{fig:pie}
-	\end{minipage}\hfill
-	\begin{minipage}{0.48\linewidth}
-			\caption{Table of key weights}
+\end{figure}{}
+% \begin{table}[H]
+% 	\begin{minipage}{0.5\linewidth}
+% 	\centering
+% 		\includegraphics[width=\textwidth]{PIE.PNG}
+% 		\captionof{figure}{Pie chart showing mass breakdown of components}
+% 		\label{fig:pie}
+% 	\end{minipage}\hfill
+% 	\begin{minipage}{0.48\linewidth}
+% 			\caption{Table of key weights}
+% 		\label{tab:tabmass}
+% 		\centering
+% \begin{tabular}{lc}
+%     \hline
+%     \rowcolor[HTML]{DAE8FC} 
+%     Weights       & kg   \\ \hline
+%     Max Take-off Weight          & 2730 \\ \hline
+%     Operational Weight Empty + Batteries & 2180 \\ \hline
+%     Maximum Zero Fuel Weight         & 1070 \\ \hline
+% \end{tabular}
+% \begin{table}[H]
+% \centering
+% \caption{Table of Moments of Inertia}
+% 		\label{tab:tabinertia}
+% \begin{tabular}{cc}
+% \hline
+% \rowcolor[HTML]{DAE8FC} 
+% Moments of Inertia & kgm$^2$   \\ \hline
+% $I_{y_{CG}}$        & 3574.35 \\ \hline
+% $I_{x_{CG}}$        & 2455.47 \\ \hline
+% $I_{z_{CG}}$        & 1118.88 \\ \hline
+% \end{tabular}
+% \end{table}
+% 	\end{minipage}
+% \end{table}
+
+\begin{table}[H]
+	\begin{minipage}{0.5\linewidth}
+	\caption{Table of key weights}
 		\label{tab:tabmass}
 		\centering
 \begin{tabular}{lc}
@@ -250,17 +287,8 @@ The final mass breakdown and key weights can be seen in Figure \ref{fig:pie} and
     Operational Weight Empty + Batteries & 2180 \\ \hline
     Maximum Zero Fuel Weight         & 1070 \\ \hline
 \end{tabular}
-	\end{minipage}
-\end{table}
-\subsection{Moments of Inertia}
-The moments of inertia were calculated assuming point masses for each of the components. The 3D location of the point mass for each component was placed where the best estimate of its centre mass would be. The equation used to calculate the mass moment of inertia for $I_{xx}$ is equation \ref{eq:ixx}, while the equations for the other axis can be seen in Appendix \ref{eq:izz}.
-%
-\begin{align}
-   I_{xx}&=\sum_{i=1}^{n} m_{i}\left(\left(y_{i}-y_{C G}\right)^{2}+\left(z_{i}-z_{C G}\right)^{2}\right)\label{eq:ixx}
-\end{align}{}
-%
-The moments of inertia of the empty helicopter can be seen in Table \ref{tab:tabinertia}. From this, it is clear that the aircraft will resist the pitching motion the most and then the rolling motion, with yawing being the easiest to enact.
-\begin{table}[H]
+	\end{minipage}\hfill
+	\begin{minipage}{0.48\linewidth}
 \centering
 \caption{Table of Moments of Inertia}
 		\label{tab:tabinertia}
@@ -272,8 +300,21 @@ $I_{y_{CG}}$        & 3574.35 \\ \hline
 $I_{x_{CG}}$        & 2455.47 \\ \hline
 $I_{z_{CG}}$        & 1118.88 \\ \hline
 \end{tabular}
+
+	\end{minipage}
 \end{table}
-\subsection{Centre of Gravity Variation}
+\subsection{Moments of Inertia}
+The moments of inertia were calculated assuming point masses for each of the components. The 3D location of the point mass for each component was placed where the best estimate of its centre mass would be. The equation used to calculate the mass moment of inertia can be seen in Appendix \ref{eq:izz}.
+
+The moments of inertia of the empty helicopter can be seen in Table \ref{tab:tabinertia}. From this, it is clear that the aircraft will resist the pitching motion the most and then the rolling motion, with yawing being the easiest to enact.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.4\textwidth]{AXIS.PNG}
+    \caption{Figure showing axis directions}
+    \label{fig:axis}
+\end{figure}{}
+\subsection{Centre of Gravity Envelope}
 Following the finalisation of component masses and positions, the centre of gravity range, as it varies with payload loadout, was calculated in 3D. The assumptions were that each human being weighed 90kg, and each passenger had the option of carrying up to 25kg of luggage each. This formed the total payload mass of 550kg. Every component was assumed to be a point mass. For every flight case the pilot was assumed present.
 The longitudinal CG against AUW can be seen in Figure \ref{fig:CG1} and the 3D CG envelope can be seen in Figure \ref{fig:CG2}.
 
@@ -296,7 +337,7 @@ The longitudinal CG against AUW can be seen in Figure \ref{fig:CG1} and the 3D C
 Lateral and vertical CG envelopes can be seen in Appendix \ref{fig:CGlat}.
 It was found that the CG location when empty lay 3mm forward of the centre of the main shaft and the largest deviation case consisted of 3 passengers, two in the front and one at the rear without any luggage, this is the leftmost point in Figure \ref{fig:CG1}. This resulted in a maximum deviation of 10.5cm forward of the main rotor, which is the preferred direction for stability and is relatively small\cite{prouty}. As can been seen in Figure \ref{fig:CG2}, in almost all cases the CG lies within the 20cm diameter rotor shaft. From this, it is advisable that when loading the aircraft to direct passengers to fill the rear seats first.
 
-This favourable CG envelope was a result of placing the heaviest components such as the gearbox, batteries and motors as close to the centre of the cabin as possible. During the design process it was evident that for structural reasons the main rotor would be better placed in the centre of the cabin, to achieve this the centre of mass had to be moved forward and so a trade study was drawn up, Table \ref{fig:batterypos}, other team members had input to the scores. The higher the score the better that location was for that particular heading and so the battery was moved under the floor of the cabin. 
+This favourable CG envelope was a result of placing the heaviest components, Figure \ref{fig:pie}, such as the transmission, batteries and motors as close to the centre of the cabin as possible. During the design process it was evident that for structural reasons the main rotor would be better placed in the centre of the cabin, this was to ensure the structural member connecting the gearbox to the front of the cabin wasn't overly long. To achieve this the centre of mass had to be moved forward to be in line with the rotor shaft and so a trade study was drawn up to assess whether moving the heaviest component, the batteries, from it's original position of behind the cabin to below the cabin was a good design choice, Table \ref{fig:batterypos}. Other team members had input to the scores of each criteria, the higher the score the better that location was for that particular criteria. From this, the battery was moved under the floor of the cabin. 
 
 \begin{table}[H]
     \centering
@@ -307,8 +348,12 @@ This favourable CG envelope was a result of placing the heaviest components such
     \label{fig:batterypos}
 \end{table}{}
 
+\subsection{Ground Stability}
 
-The CG range information was used to inform the design of the helicopter skids so as to satisfy the 12 degree inclination requirement. Following structural design and ground resonance considerations, which can be seen in the structures and rotor hub specialist reports respectively, the final skids allow for an on-ground inclination of 37.6 degrees. This is assuming worst case CG (empty).\\
+The CG range information was used to inform the design of the helicopter skids so as to satisfy the 12 degree inclination requirement. 
+The skids require input from three specialisations, weight and balance, structures and rotor design. The skids has to have dimensions such that the CG is within their footprint even at a 12 degree incline on the ground.
+
+Following structural design and ground resonance considerations, which can be seen in the structures and rotor hub specialist reports respectively, the final skids allow for an on-ground inclination of 37.6 degrees. This is assuming worst case CG scenario of no payload (empty).\\
 
 
 %-------------------------------------------
@@ -458,7 +503,6 @@ The only differing value between the cases in Table \ref{tab:long} is the Tail F
     \caption{Figure showing combined cruise results of both qualifying cases v. Tail Force and the final value of tail force selection method}
     \label{fig:cases}
 \end{figure}{}
-
 This plot allowed the crossings of the maximum angles and minimum angles to be found. Ordinarily a double plot could not be used to directly relate two variables to each other, however, as the $y$-limits have been approximately matched graphically the crossings observed would correspond roughly to a minimum of the two. The Tail force chosen was the mid point of these crossings which can be seen in Figure \ref{fig:cases}. This can be said to be the optimum Tail force for this shaft tilt, assuming the flapping and pitch angles are weighted equally at this stage. Thus, the final configuration is a Shaft Tilt of $\gamma=-3.86$ degrees and a Tail Force of $L_t=686.8N$.
 
 The resulting maximum and minimum pitch angles and flapping angles can be seen in Table \ref{tab:cgres}, while full results for each CG location can be seen in plots in Appendix \ref{fig:CGHOVERP}.
@@ -554,7 +598,7 @@ The dynamic model was created using the lift curve slope of NACA0006. The model 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.9\textwidth]{VertStabdiag.PNG}
-	\caption{Diagram showing model (incl. rudder)}
+	\caption{Plan view of dynamic model of vertical stabiliser}
 	\centering
 	\label{fig:vertdiag}
 \end{figure}
@@ -589,7 +633,7 @@ Equations \ref{eq:eom1} and \ref{eq:eom2} were simulated in Matlab and the dampi
 \begin{minipage}{.48\textwidth}
   \centering
   \includegraphics[width=\linewidth]{DampVArea2.eps}
-  \captionof{figure}{Figure showing Damping Ratio V Area for both implementations}
+  \captionof{figure}{Comparison of Yaw Damping Ratio between a rudder and static fin.}
   \label{fig:vstab1}
 \end{minipage}\hspace{0.2cm}
 \begin{minipage}{.48\textwidth}
@@ -626,7 +670,7 @@ Future work may be done to assess the rudder's use as a method of yaw control th
 \section{Summary and Conclusions}
 
 \section{Reflection}
-
+ The challenges of minimising weight through battery technology selection, motor selection, drive-train design, rotor design, etc proved to be a lengthy iterative process that benefited from creating tools that could be used to quickly check various aspects of weight and balance. 
 Weights required input from team members, tests required close cooperation with performance specialist and battery and drive-train specialist. Feedback to rest of team.
 
 Every major decision was done as a group with the help of trade study tables. Constant clear communication was key.
@@ -644,7 +688,7 @@ Simulation Modelling. Second ed., Blackwell Publishing, 2007
 %-------------------------------------------------------------------------------
 % APPENDIX
 %-------------------------------------------------------------------------------
-
+\newpage
 \begin{appendices}
 %\addcontentsline{toc}{section}{APPENDIX}
 \renewcommand\thefigure{A.\arabic{figure}}  
@@ -653,7 +697,7 @@ Simulation Modelling. Second ed., Blackwell Publishing, 2007
 \setcounter{equation}{0}
 \renewcommand\thetable{A.\arabic{table}}  
 \setcounter{table}{0}
-
+\thispagestyle{empty}
 \section{Mass Distribution}
 \begin{table}[H]
 \centering
@@ -696,19 +740,40 @@ Payload                        & 550                             \\ \hline
 \end{minipage}
 \end{figure}
 
-\begin{align}
-   I_{YY}&=\sum_{i=1}^{n} m_{i}\left(\left(x_{i}-x_{C G}\right)^{2}+\left(z_{i}-z_{C G}\right)^{2}\right)\\
-   I_{ZZ}&=\sum_{i=1}^{n} m_{i}\left(\left(x_{i}-x_{C G}\right)^{2}+\left(y_{i}-y_{C G}\right)^{2}\right) \label{eq:izz}
-\end{align}{}
-
-
-\section{Trim Equations}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.4\textwidth]{CGLATVLONG.eps}
+    \caption{CG variation Long. V Laterally}
+    \label{fig:cglongvlat}
+\end{figure}{}
+%
+% Appendix Moments of Inertia
+%
+\section{Moments of Inertia Equations}
 \renewcommand\thefigure{B.\arabic{figure}}  
 \setcounter{figure}{0}
 \renewcommand\theequation{B.\arabic{equation}}  
 \setcounter{equation}{0}
 \renewcommand\thetable{B.\arabic{table}}  
 \setcounter{table}{0}
+\begin{align}
+I_{xx}&=\sum_{i=1}^{n} m_{i}\left(\left(y_{i}-y_{C G}\right)^{2}+\left(z_{i}-z_{C G}\right)^{2}\right)\label{eq:ixx}\\
+   I_{YY}&=\sum_{i=1}^{n} m_{i}\left(\left(x_{i}-x_{C G}\right)^{2}+\left(z_{i}-z_{C G}\right)^{2}\right)\\
+   I_{ZZ}&=\sum_{i=1}^{n} m_{i}\left(\left(x_{i}-x_{C G}\right)^{2}+\left(y_{i}-y_{C G}\right)^{2}\right) \label{eq:izz}
+\end{align}{}
+
+\thispagestyle{empty}
+%
+% Appendix Trim Equations
+%
+\section{Trim Equations}
+\renewcommand\thefigure{C.\arabic{figure}}  
+\setcounter{figure}{0}
+\renewcommand\theequation{C.\arabic{equation}}  
+\setcounter{equation}{0}
+\renewcommand\thetable{C.\arabic{table}}  
+\setcounter{table}{0}
+\thispagestyle{empty}
 Hover Trim Equations
 \begin{align}
     a_{\mathrm{1s}}&=\frac{T\,\left(h_{r}\,\gamma-x_{\mathrm{cg}}+\frac{D_{\mathrm{fZ}}\,l_{f}}{\mathrm{mg}}+\frac{D_{\mathrm{hZ}}\,l_{t}}{\mathrm{mg}}\right)}{\frac{dM_m}{da_{1s}}+T\,h_{r}}\\
@@ -725,10 +790,16 @@ Cruise Trim Equations
     D_h&=\frac{1}{2}\,\rho\,V^2\,S_h\,(C_{d_\alpha}\,(\theta_f+\phi_t))\\
     \phi_t&=\frac{L_t}{0.5\,\rho\,V^2\,S_h\,C_{l_\alpha}}-\theta_f
 \end{align}{}
-
-
-
-
+%
+% Appendix Pitch and Flapping Angles
+%
+\section{Pitch and Flapping Angles at Cruise and Hover}
+\renewcommand\thefigure{D.\arabic{figure}}  
+\setcounter{figure}{0}
+\renewcommand\theequation{D.\arabic{equation}}  
+\setcounter{equation}{0}
+\renewcommand\thetable{D.\arabic{table}}  
+\setcounter{table}{0}
 \begin{figure}[H]
 \centering
 \begin{minipage}{.49\textwidth}
@@ -760,7 +831,7 @@ Cruise Trim Equations
 \end{minipage}
 \end{figure}
 \end{appendices}{}
-
+\thispagestyle{empty}
 
 
 \end{document}
