@@ -34,6 +34,7 @@
 \usepackage[nottoc,numbib]{tocbibind}
 \usepackage{float}
 \usepackage{eurosym}
+\usepackage{pdfpages}
 \usepackage{gensymb}
 \usepackage{wrapfig}
 \usepackage{multirow}
@@ -51,9 +52,9 @@
   ]}
   \renewcommand{\nomname}{List of Abbreviations and Symbols}
 %
-\lhead{{\small Team 2R I. Zaman}}
+\lhead{{\small I. Zaman - iz16368}}
 %
-\chead{{\small Weight and Balance, Stability \& Control}}
+\chead{{\small 2R - Weight and Balance, Stability \& Control}}
 %
  \rhead{\includegraphics[height=5mm]{Logo.png}}
 %
@@ -116,7 +117,6 @@ for an Electric Urban Air Vehicle (Skypass)}}
 %\textbf{Abstract:}
 \abstract{Mass distribution and empennage are key issues when designing a balanced and stable rotary winged aircraft. The final positioning of component masses achieved a favourable CG envelope lying within 10.5cm of the rotor shaft under various payload configurations. The moments of inertia were calculated and fed into the design of the empennage. In the interests of passenger comfort, the absolute values of fuselage pitch at hover and cruise were kept as close to zero as possible whilst the resulting flapping angles of the rotors were minimised to reduce power consumption. This was achieved by specifying a particular shaft tilt and horizontal stabiliser configuration. The effect of each of these on the resulting flapping and pitch angles in both cruise and hover was analysed and an optimum combination found heuristically. The design specifies the rotor shaft tilt and the desired moment of the horizontal stabiliser. The aircraft is of a coaxial rotor design which does not require a vertical stabiliser or tail rotor. However, to improve passenger comfort and efficiency, a vertical stabiliser was dynamically modelled and a controlled rudder added to dampen oscillating yaw disturbances. The final specification provides a balance between passenger comfort and efficiency.}
 
-%salaam
 \begin{figure}[H]
     \centering
         \includegraphics[width=0.5\textwidth]{High_res_2.png}
@@ -192,21 +192,21 @@ for an Electric Urban Air Vehicle (Skypass)}}
 %-------------------------------------------------------------------------------
 
 \section{Introduction}
-Helicopters can provide a fast point-point capability between locations within a limited range with a potential for direct access to urban areas. However, a cost effective and environmentally friendly means has been elusive. With recent developments in electrical power drives and batteries the potential for such transportation is increasing, with multiple companies such as Lilium and Volocopter producing solutions \cite{bbc}. Leonardo, a multinational helicopter company, provided a loose Requirements Specification for a concept electric urban air vehicle. Broadly, the requirement is to be able to transport a pilot with four passenger with speed and in comfort within a range of 30km within 30 minutes . 
+Rotorcraft can provide a fast point-point capability between locations within a limited range with a potential for direct access to urban areas. However, a cost effective and environmentally friendly option has been elusive. With recent developments in electrical power drives and batteries the potential for such transportation is increasing, with multiple companies such as Lilium and Volocopter proposing solutions \cite{bbc}. Leonardo provided a loose Requirements Specification for a concept electric urban air vehicle. Broadly, the requirement is design a fully electric aircraft that is able to transport a pilot with four passengers in comfort within a range of 30km within 30 minutes. 
 
-This is a group project of 10 team members. The group has the freedom to decide on an appropriate performance and design specification but must comply with the relevant Joint Aviation Requirement performance rule. The project tasks involve a number of specialisations of which Weight and Balance, Stability \& Control (WBSC) is one. This report presents the design of the proposed aircraft that relates to the specialisation of WBSC. This is an individual project feeding into the overall group project for the design of the aircraft.
+This is a group project of 10 team members. The group has the freedom to decide on an appropriate performance and design specification but must comply with the relevant regulations and set requirements. The project tasks involve a number of specialisations of which Weight and Balance, Stability \& Control (WBSC) is one. This report presents the design of the proposed aircraft that relates to the specialisation of WBSC. This is an individual project feeding into the overall group project for the design of the aircraft.
 
-The key outputs of this specialisation is the angle of the main rotor, and the design parameters for the horizontal and vertical tail fin stabilisers, optimised to address the requirement of both passenger comfort and power efficiency.
+The key outputs of this specialisation are the CG envelopes, angle of the main rotor, and the design parameters for the horizontal and vertical tail fin stabilisers, optimised to address the requirement of both passenger comfort and power efficiency.
 
 \begin{wrapfigure}[28]{r}{8.7cm}
 \begin{center}
-    \includegraphics[width=8cm]{Flowchart.PNG}
+    \includegraphics[width=8cm]{Flowchart2.PNG}
 \end{center}
     \caption{Overview of design process}
     \label{fig:flow}
   %  \vspace{-510pt}
 \end{wrapfigure}
-The remainder of this report is structured as follows. Section 2 provides the  context to the design specialisation of Weight, Balance, Stability \& Control with respect to the project as a whole. Section 3 presents the mass considerations including centre of gravity and moments of inertia. Section 3 provides the date needed for trim and empennage. Section 4 addresses passenger comfort and power consumption in deciding the main rotor shaft tilt and horizontal stabiliser parameters. Section 5 describes the addition of an active vertical stabiliser rudder to damp yaw oscillations. Section 6 discusses the design concluding with a reflection and a summary.
+The remainder of this report is structured as follows. Section 2 provides the  context to the design specialisation of Weight, Balance, Stability \& Control with respect to the project as a whole. Section 3 presents the mass considerations including centre of gravity and moments of inertia. Section 3 provides the data needed for trim and empennage design. Section 4 addresses passenger comfort and power consumption in deciding the main rotor shaft tilt and horizontal stabiliser parameters. Section 5 describes the addition of an active vertical stabiliser rudder to damp yaw oscillations. Concluding with a summary and a reflection.
 %-------------------------------------------------------------------------------
 % TECHNICAL OVERVIEW
 %-------------------------------------------------------------------------------
@@ -221,9 +221,9 @@ A brief overview of the key design processes for this specialisation can be seen
 % \end{figure}
 
 
-After the initial concept selection phase of the project, where it was decided what overall technologies and systems would be used, the focus was on completing a final design with technical justification that satisfied the requirements set by Leonardo and also internally. For this specialisation of weight \& balance, stability and control, this meant that tools had to be created to allow for trials and testing to be done to inform the design for every change in mass or mass location.
+After the initial concept selection phase of the project, where it was decided what overall technologies and systems would be used (see PEDR), the focus was on completing a final design with technical justification that satisfied the requirements set by Leonardo and also internally. For this specialisation of weight \& balance, stability and control, this meant that tools had to be created to allow for trials and testing to be done to inform the design for every change in mass or mass location. Which would then be taken forward to finalise the design of the tail and rotor shaft tilt.
 
-The information required from other specialisations are the masses and locations of said masses of the respective components. Initially broad estimates were used to gauge which components needed the most attention and as the project progressed more accurate estimates were provided. Every change to a component necessitated a re-evaluation of the mass properties of the aircraft which was then fed back into the specialisation providing them with the direction of whether the mass should be reduced or whether the location of such a part could be moved to improve the CG envelope. As the MTOW of the aircraft has such a large effect on the other specialisations the process of obtaining final masses was iterative. During this, the tools for creating the  CG envelope and trim conditions were developed using placeholder values for parameters which had yet to be determined.
+The information required from other specialisations are the masses and locations of said masses of their respective components. Initially broad estimates were used to gauge which components needed the most attention and as the project progressed more accurate estimates were provided. Every change to a component necessitated a re-evaluation of the mass properties of the aircraft which was then fed back into the specialisation providing them with the direction of whether the mass should be reduced or whether the location of such a part could be moved to improve the CG envelope. As the MTOW of the aircraft has such a large effect on the other specialisations the process of obtaining final masses was iterative. During this, the tools for creating the  CG envelope and trim conditions were developed using placeholder values for parameters which had yet to be determined.
 
 It came to a point in the project where it was decided to freeze the specifications of the major components, namely the batteries, drive system, blades, cabin layout and structural members. So that final numbers could be calculated performance wise and to allow final design of trim and stability.
 Once the design freeze had taken place, the masses and positions of each component were consolidated and that allowed the final CG envelope to be produced. This was done by obtaining the CG of the empty aircraft, and then permutating the layout of passengers and luggage to obtain the full range CG positions in 3D. This also allowed the minimum dimensions of the landing skids to be found. 
@@ -717,24 +717,24 @@ The relevant mass considerations were taken into account to
 
 
 \section{Reflection}
+This expansive, accelerated design project presented many challenges that required effective team management, clear overall aims and objectives as well as for each team member and constant clear communication throughout. 
+Our team was able to work together well, constantly being able to update each other as to our progress and requirements and to ensure working numbers were up-to-date and consistent. Regular meetings were held where objectives were kept on track and tasks were clearly mapped out and assigned to specific members. It was beneficial for us to work in the same location as it allowed for immediate contact. 
 
-Teamwork
+The challenges of minimising weight through battery technology selection, motor selection, drive-train design, rotor design, etc proved to be a lengthy iterative process that benefited greatly from creating tools early-on that could be used to quickly check various aspects of weight and balance, namely CG and weight breakdown and provide immediate feedback to the rest of the team. This allowed every team member to have broad sense of the direction our design was heading mass-wise.
 
-Engineering challenge, compromise.
+Every major decision was done as a group with the help of trade study tables and listening to all raised points. Constant, clear communication was key.
 
-large number of assumptions
+The sheer volume of engineering decisions and conflicting requirements of this project exposed the importance of meaningful and justified compromise between and within specialisations. The interface between specialisations were tested and some tasks which had originally been allocated to one role by the university it was found that perhaps another role may be more suited to it. For example, ground resonance, this was the interface between rotor blades and structures and yet was initially allocated to weight and balance, it was decided that the rotor specialists were better suited to this.
 
-communication
- regular meetings
+The decision to opt for a coaxial configuration presented multiple issues that prevented the full use of existing resources that were tailored for a more conventional penny-farthing helicopter. This forced the use of multiple assumptions that attempted to allow at least an indicative level of analysis throughout the project.
 
+The option of dynamically simulating the aircraft in order to obtain the characteristics of the modes of motion was not deemed possible given the timeframe and lack of resources on the dynamic properties of a coaxial helicopter. The lack of a tail rotor and presence of contra-rotating rotors would greatly affect the applicability of existing equations of motion to this aircraft. For example, it is not clear how the rotors would affect each other dynamically in the case of a gust, e.g would they flap out of phase? This would constitute future work, as well as the future work mentioned in the discussion sections in the previous chapters.
 
-*** WHAT WOULD YOU DO DIFFERENTLY? INTERACTIONS WITH GROUP/SUPERVISOR.***
-*** WHAT WENT WELL ***
-*** WHAT DIDNT GO WELL AND WHAT COULD HAVE BEEN DONE TO PREVENT IT IF PROJECT DONE AGAIN***
- The challenges of minimising weight through battery technology selection, motor selection, drive-train design, rotor design, etc proved to be a lengthy iterative process that benefited from creating tools that could be used to quickly check various aspects of weight and balance. 
-Weights required input from team members, tests required close cooperation with performance specialist and battery and drive-train specialist. Feedback to rest of team.
+Even though the project went through a massive design shift during the PDR stage, from a coaxial quadrotor with a wing and a pusher propeller to a relatively more standard coaxial helicopter, the final design ended up fulfilling our internal criteria to a more than satisfactory degree.
+Improvements in the design process could be made by further integrating the specialisations that would directly affect each other. Additionally, the project may have progressed faster if harder decisions were made earlier, instead of circling the various options.
 
-Every major decision was done as a group with the help of trade study tables. Constant clear communication was key.
+In conclusion, this project was a gauntlet in testing our engineering and team working abilities. Bringing to light the broad engineering challenges that may be faced in industry and forcing us to navigate to a justified working solution as a team.
+
 
 
 %-------------------------------------------------------------------------------
@@ -814,7 +814,7 @@ Payload                        & 550                             \\ \hline
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.4\textwidth]{CGLATVLONG.eps}
-    \caption{Combined CG variation Longitudinal and Laterally axis}
+    \caption{Combined CG variation Longitudinal and Lateral}
     \label{fig:cglongvlat}
 \end{figure}{}
 %
@@ -829,8 +829,8 @@ Payload                        & 550                             \\ \hline
 \setcounter{table}{0}
 \begin{align}
 I_{xx}&=\sum_{i=1}^{n} m_{i}\left(\left(y_{i}-y_{C G}\right)^{2}+\left(z_{i}-z_{C G}\right)^{2}\right)\label{eq:ixx}\\
-   I_{YY}&=\sum_{i=1}^{n} m_{i}\left(\left(x_{i}-x_{C G}\right)^{2}+\left(z_{i}-z_{C G}\right)^{2}\right)\\
-   I_{ZZ}&=\sum_{i=1}^{n} m_{i}\left(\left(x_{i}-x_{C G}\right)^{2}+\left(y_{i}-y_{C G}\right)^{2}\right) \label{eq:izz}
+   I_{yy}&=\sum_{i=1}^{n} m_{i}\left(\left(x_{i}-x_{C G}\right)^{2}+\left(z_{i}-z_{C G}\right)^{2}\right)\\
+   I_{zz}&=\sum_{i=1}^{n} m_{i}\left(\left(x_{i}-x_{C G}\right)^{2}+\left(y_{i}-y_{C G}\right)^{2}\right) \label{eq:izz}
 \end{align}{}
 
 \thispagestyle{empty}
@@ -904,7 +904,7 @@ Cruise Trim Equations
 \end{appendices}{}
 \thispagestyle{empty}
 
-
+\includepdf[pages=-,pagecommand={},width=\textwidth]{DATASHEET.pdf}
 \end{document}
 
 %%NOTES
