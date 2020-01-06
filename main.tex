@@ -93,13 +93,13 @@
 %\textsc{\Large \textbf{Aerospace Vehicle Design \& System Integration 4 \\ \vspace{2mm} Final Engineering Definition Report}}
 
 {\Large  \textbf{Weight and Balance, Stability \& Control \\ \vspace{2mm}
-for an Electric Urban Air Vehicle (Skypass)}}
+for an Electric Urban Air Vehicle (Skypass 3)}}
 \vspace{10mm}
 %\hrule
 
 \textsc{\textbf{Ismaeel Zaman}} \\
-\textsc{\textbf{iz16368}} \\
-\textsc{\textbf{(Team 2R)}}\\
+\textsc{\textbf{(Student id: iz16368)}} \\
+%\textsc{\textbf{(Team 2R)}}\\
 \vspace{10mm}
 \textsc{\textbf{Academic Advisor:} Professor Nick Lieven} 
 \\[0.5cm]
@@ -117,11 +117,6 @@ for an Electric Urban Air Vehicle (Skypass)}}
 %\textbf{Abstract:}
 \abstract{Mass distribution and empennage are key issues when designing a balanced and stable rotary winged aircraft. The final positioning of component masses achieved a favourable CG envelope lying within 10.5cm of the rotor shaft under various payload configurations. The moments of inertia were calculated and fed into the design of the empennage. In the interests of passenger comfort, the absolute values of fuselage pitch at hover and cruise were kept as close to zero as possible whilst the resulting flapping angles of the rotors were minimised to reduce power consumption. This was achieved by specifying a particular shaft tilt and horizontal stabiliser configuration. The effect of each of these on the resulting flapping and pitch angles in both cruise and hover was analysed and an optimum combination found heuristically. The design specifies the rotor shaft tilt and the desired moment of the horizontal stabiliser. The aircraft is of a coaxial rotor design which does not require a vertical stabiliser or tail rotor. However, to improve passenger comfort and efficiency, a vertical stabiliser was dynamically modelled and a controlled rudder added to dampen oscillating yaw disturbances. The final specification provides a balance between passenger comfort and efficiency.}
 
-\begin{figure}[H]
-    \centering
-        \includegraphics[width=0.5\textwidth]{High_res_2.png}
-        \end{figure}
-\hrule
 
 
 \vfill
@@ -193,9 +188,17 @@ for an Electric Urban Air Vehicle (Skypass)}}
 %-------------------------------------------------------------------------------
 
 \section{Introduction}
-Rotorcraft have the potential to be a fast point-to-point travel alternative to conventional public transport. However, a cost effective and environmentally friendly option has been elusive. However, with recent developments in electrical motors and batteries the potential for such transportation is increasing, with a number of companies such as Lilium GmbH and Volocopter GmbH proposing solutions \cite{bbc}. To this end, Leonardo, a helicopter manufacturer, provided a loose Requirements Specification for a concept electric urban air vehicle. Broadly, the requirement is for a fully electric aircraft that is able to transport a pilot with four passengers, in comfort, within a range of 30km within 30 minutes. 
+\begin{wrapfigure}[13]{r}{4cm}
+\begin{center}
+    \includegraphics[width=3.7cm]{photo.PNG}
+\end{center}
+    \caption{Skypass 3}
+    \label{fig:photo}
+  %  \vspace{-510pt}
+\end{wrapfigure}
+Rotorcraft have the potential to be a fast point-to-point travel alternative to conventional public transport. However, a cost effective and environmentally friendly option has been elusive. However, with recent developments in electrical motors and batteries the potential for such transportation is increasing, with a number of companies such as Lilium GmbH and Volocopter GmbH proposing solutions \cite{bbc}. To this end, Leonardo, a helicopter manufacturer, provided a loose Requirements Specification for a concept electric urban air vehicle (Skypass 3). Broadly, the requirement is for a fully electric aircraft that is able to transport a pilot with four passengers, in comfort, within a range of 30km within 30 minutes. 
 
-This was a group project of 10 team members. The team had the freedom to decide on an appropriate performance and design specification but must comply with the relevant regulations and set requirements. The project tasks involve a number of specialisations of which Weight and Balance, Stability \& Control (WBSC) is one. This report presents the design of the proposed aircraft that relates to the specialisation of WBSC.
+Our solution to this was Skypass. This was a group project of 10 team members. The team had the freedom to decide on an appropriate performance and design specification but must comply with the relevant regulations and set requirements. The project tasks involve a number of specialisations of which Weight and Balance, Stability \& Control (WBSC) is one. This report presents the design of the proposed aircraft that relates to the specialisation of WBSC.
 
 This specialisation deals with Weight and Balance, Stability \& Control. Weight and Balance covers the mass budget of components and breakdown and the  Centre of Gravity (CG) envelope of the aircraft, as well as moments of inertias. Stability \& Control covers the control and aerodynamic surfaces design with regards to trim and comfort. The key outputs of this specialisation are the CG envelopes, main rotor shaft tilt angle, and the design parameters for the horizontal and vertical tail fin stabilisers, optimised to address the requirement of both passenger comfort and power efficiency.
 
@@ -217,8 +220,6 @@ After the initial concept selection phase of the project, where it was decided w
 
 The information required from other specialisations are the masses and locations of said masses of their respective components. Initially broad estimates were used to gauge which components needed the most attention and as the project progressed more accurate estimates were provided. Every change to a component necessitated a re-evaluation of the mass properties of the aircraft which was then fed back into the specialisation providing them with the direction of whether the mass should be reduced or whether the location of such a part could be moved to improve the CG envelope. As the MTOW of the aircraft has such a large effect on the other specialisations the process of obtaining final masses was iterative. During this, the tools for creating the  CG envelope and trim conditions were developed using placeholder values for parameters which had yet to be determined.
 
-It came to a point in the project where it was decided to freeze the specifications of the major components, namely the batteries, drive system, blades, cabin layout and structural members. So that final numbers could be calculated performance wise and to allow final design of trim and stability.
-Once the design freeze had taken place, the masses and positions of each component were consolidated 
 \begin{wrapfigure}[32]{r}{8cm}
 \begin{center}
     \includegraphics[width=7.5cm]{Flowchart2.PNG}
@@ -227,6 +228,9 @@ Once the design freeze had taken place, the masses and positions of each compone
     \label{fig:flow}
   %  \vspace{-510pt}
 \end{wrapfigure}
+It came to a point in the project where it was decided to freeze the specifications of the major components, namely the batteries, drive system, blades, cabin layout and structural members. So that final numbers could be calculated performance wise and to allow final design of trim and stability.
+Once the design freeze had taken place, the masses and positions of each component were consolidated 
+
 and that allowed the final CG envelope to be produced. This was done by obtaining the CG of the empty aircraft, and then permutating the layout of passengers and luggage to obtain the full range CG positions in 3D. This also allowed the minimum dimensions of the landing skids to be found. 
 
 Next, longitudinal trim and shaft tilt had to be determined. This section constituted the most time consuming part of this specialisation. The shaft tilt and horizontal stabiliser design had to be determined simultaneously as both had to satisfy a sum of moments and forces. A parameter sweep of the shaft tilt and horizontal tail force was performed and the resulting longitudinal flapping angles and fuselage pitch were obtained for all CG positions found previously. A criteria was then formed to narrow down the selection to two configurations of shaft tilt and tail force, between these the optimum configuration was obtained. For the chosen design the resulting angles of fuselage and flapping for hover and cruise for a range of loading conditions were plotted. From the tail force it was possible to obtain a final design for the horizontal stabiliser.
@@ -345,7 +349,7 @@ The longitudinal CG against AUW can be seen in Figure \ref{fig:CG1} and the 3D C
 \end{minipage}%
 \begin{minipage}{.5\textwidth}
   \centering
-  \includegraphics[width=\linewidth]{CG3D.eps}
+  \includegraphics[width=\linewidth]{CG3D2.eps}
   \captionof{figure}{3D CG Envelope}
   \label{fig:CG2}
 \end{minipage}
@@ -885,13 +889,13 @@ Cruise Trim Equations
 \begin{minipage}{.49\textwidth}
   \centering
   \includegraphics[width=\linewidth]{CGCRUISEP.eps}
-  \captionof{figure}{Figure showing cruise pitch angles for each CG position for chosen design}
+  \captionof{figure}[Cruise Pitch Angles]{Figure showing cruise pitch angles for each CG position for chosen design}
   \label{fig:CGCRUISEP}
 \end{minipage}\hspace{0.2cm}
 \begin{minipage}{.49\textwidth}
   \centering
   \includegraphics[width=\linewidth]{CGHOVERP.eps}
-  \captionof{figure}{Figure showing hover pitch angles for each CG position for chosen design}
+  \captionof{figure}[Hover Pitch Angles]{Figure showing hover pitch angles for each CG position for chosen design}
   \label{fig:CGHOVERP}
 \end{minipage}
 \end{figure}
