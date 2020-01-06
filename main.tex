@@ -52,9 +52,9 @@
   ]}
   \renewcommand{\nomname}{List of Abbreviations and Symbols}
 %
-\lhead{{\small I. Zaman - iz16368}}
+%\lhead{{\small I. Zaman - iz16368}}
 %
-\chead{{\small 2R - Weight and Balance, Stability \& Control}}
+\chead{{\small 2R: Weight and Balance, Stability \& Control}}
 %
  \rhead{\includegraphics[height=5mm]{Logo.png}}
 %
@@ -98,10 +98,10 @@ for an Electric Urban Air Vehicle (Skypass)}}
 %\hrule
 
 \textsc{\textbf{Ismaeel Zaman}} \\
+\textsc{\textbf{iz16368}} \\
 \textsc{\textbf{(Team 2R)}}\\
 \vspace{10mm}
-\textsc{\textbf{Academic Advisor:} Professor Nick Lieven} \\
-\textsc{\textbf{Postgraduate Mentor:} Harry Felton}
+\textsc{\textbf{Academic Advisor:} Professor Nick Lieven} 
 \\[0.5cm]
 
 \vspace{24pt}
@@ -144,6 +144,7 @@ for an Electric Urban Air Vehicle (Skypass)}}
     \nomenclature[A]{AUW}{All Up  Weight}
     \nomenclature[A]{MZFW}{Max Zero Fuel Weight}
      \nomenclature[A]{OWE}{Operational Weight Empty}
+      \nomenclature[A]{GA}{General Architecture}
       \nomenclature[A]{NACA}{National Advisory Committee for Aeronautics}
     \nomenclature[S]{$I_{CG}$}{Second moment of inertia about CG, subscript refers to axis}
     \nomenclature[S]{W,mg}{Aircraft weight}
@@ -192,25 +193,17 @@ for an Electric Urban Air Vehicle (Skypass)}}
 %-------------------------------------------------------------------------------
 
 \section{Introduction}
-Rotorcraft can provide a fast point-point capability between locations within a limited range with a potential for direct access to urban areas. However, a cost effective and environmentally friendly option has been elusive. With recent developments in electrical power drives and batteries the potential for such transportation is increasing, with multiple companies such as Lilium and Volocopter proposing solutions \cite{bbc}. Leonardo provided a loose Requirements Specification for a concept electric urban air vehicle. Broadly, the requirement is design a fully electric aircraft that is able to transport a pilot with four passengers in comfort within a range of 30km within 30 minutes. 
+Rotorcraft have the potential to be a fast point-to-point travel alternative to conventional public transport. However, a cost effective and environmentally friendly option has been elusive. However, with recent developments in electrical motors and batteries the potential for such transportation is increasing, with a number of companies such as Lilium GmbH and Volocopter GmbH proposing solutions \cite{bbc}. To this end, Leonardo, a helicopter manufacturer, provided a loose Requirements Specification for a concept electric urban air vehicle. Broadly, the requirement is for a fully electric aircraft that is able to transport a pilot with four passengers, in comfort, within a range of 30km within 30 minutes. 
 
-This is a group project of 10 team members. The group has the freedom to decide on an appropriate performance and design specification but must comply with the relevant regulations and set requirements. The project tasks involve a number of specialisations of which Weight and Balance, Stability \& Control (WBSC) is one. This report presents the design of the proposed aircraft that relates to the specialisation of WBSC. This is an individual project feeding into the overall group project for the design of the aircraft.
+This was a group project of 10 team members. The team had the freedom to decide on an appropriate performance and design specification but must comply with the relevant regulations and set requirements. The project tasks involve a number of specialisations of which Weight and Balance, Stability \& Control (WBSC) is one. This report presents the design of the proposed aircraft that relates to the specialisation of WBSC.
 
-The key outputs of this specialisation are the CG envelopes, angle of the main rotor, and the design parameters for the horizontal and vertical tail fin stabilisers, optimised to address the requirement of both passenger comfort and power efficiency.
+This specialisation deals with Weight and Balance, Stability \& Control. Weight and Balance covers the mass budget of components and breakdown and the  Centre of Gravity (CG) envelope of the aircraft, as well as moments of inertias. Stability \& Control covers the control and aerodynamic surfaces design with regards to trim and comfort. The key outputs of this specialisation are the CG envelopes, main rotor shaft tilt angle, and the design parameters for the horizontal and vertical tail fin stabilisers, optimised to address the requirement of both passenger comfort and power efficiency.
 
-\begin{wrapfigure}[28]{r}{8.7cm}
-\begin{center}
-    \includegraphics[width=8cm]{Flowchart2.PNG}
-\end{center}
-    \caption{Overview of design process}
-    \label{fig:flow}
-  %  \vspace{-510pt}
-\end{wrapfigure}
-The remainder of this report is structured as follows. Section 2 provides the  context to the design specialisation of Weight, Balance, Stability \& Control with respect to the project as a whole. Section 3 presents the mass considerations including centre of gravity and moments of inertia. Section 3 provides the data needed for trim and empennage design. Section 4 addresses passenger comfort and power consumption in deciding the main rotor shaft tilt and horizontal stabiliser parameters. Section 5 describes the addition of an active vertical stabiliser rudder to damp yaw oscillations. Concluding with a summary and a reflection.
+The remainder of this report is structured as follows. Section 2 describes the context to the design specialisation of Weight and Balance, Stability \& Control with respect to the the design process and its integration with the other specialisations. Section 3 presents the mass considerations including centre of gravity and moments of inertia. Section 4 addresses passenger comfort and power consumption in deciding the main rotor shaft tilt and horizontal stabiliser parameters. Section 5 describes the addition of an active rudder to damp yaw oscillations. Concluding with a summary, and a reflection of the project as a whole.
 %-------------------------------------------------------------------------------
 % TECHNICAL OVERVIEW
 %-------------------------------------------------------------------------------
-\section{Technical Overview}
+\section{Design Process}
 A brief overview of the key design processes for this specialisation can be seen in  Figure \ref{fig:flow}.
 % \begin{figure}[H]
 % 	\flushright
@@ -220,13 +213,21 @@ A brief overview of the key design processes for this specialisation can be seen
 % 	\label{fig:flowchart}
 % \end{figure}
 
-
 After the initial concept selection phase of the project, where it was decided what overall technologies and systems would be used (see PEDR), the focus was on completing a final design with technical justification that satisfied the requirements set by Leonardo and also internally. For this specialisation of weight \& balance, stability and control, this meant that tools had to be created to allow for trials and testing to be done to inform the design for every change in mass or mass location. Which would then be taken forward to finalise the design of the tail and rotor shaft tilt.
 
 The information required from other specialisations are the masses and locations of said masses of their respective components. Initially broad estimates were used to gauge which components needed the most attention and as the project progressed more accurate estimates were provided. Every change to a component necessitated a re-evaluation of the mass properties of the aircraft which was then fed back into the specialisation providing them with the direction of whether the mass should be reduced or whether the location of such a part could be moved to improve the CG envelope. As the MTOW of the aircraft has such a large effect on the other specialisations the process of obtaining final masses was iterative. During this, the tools for creating the  CG envelope and trim conditions were developed using placeholder values for parameters which had yet to be determined.
 
 It came to a point in the project where it was decided to freeze the specifications of the major components, namely the batteries, drive system, blades, cabin layout and structural members. So that final numbers could be calculated performance wise and to allow final design of trim and stability.
-Once the design freeze had taken place, the masses and positions of each component were consolidated and that allowed the final CG envelope to be produced. This was done by obtaining the CG of the empty aircraft, and then permutating the layout of passengers and luggage to obtain the full range CG positions in 3D. This also allowed the minimum dimensions of the landing skids to be found. 
+Once the design freeze had taken place, the masses and positions of each component were consolidated 
+\begin{wrapfigure}[32]{r}{8cm}
+\begin{center}
+    \includegraphics[width=7.5cm]{Flowchart2.PNG}
+\end{center}
+    \caption{Overview of design process}
+    \label{fig:flow}
+  %  \vspace{-510pt}
+\end{wrapfigure}
+and that allowed the final CG envelope to be produced. This was done by obtaining the CG of the empty aircraft, and then permutating the layout of passengers and luggage to obtain the full range CG positions in 3D. This also allowed the minimum dimensions of the landing skids to be found. 
 
 Next, longitudinal trim and shaft tilt had to be determined. This section constituted the most time consuming part of this specialisation. The shaft tilt and horizontal stabiliser design had to be determined simultaneously as both had to satisfy a sum of moments and forces. A parameter sweep of the shaft tilt and horizontal tail force was performed and the resulting longitudinal flapping angles and fuselage pitch were obtained for all CG positions found previously. A criteria was then formed to narrow down the selection to two configurations of shaft tilt and tail force, between these the optimum configuration was obtained. For the chosen design the resulting angles of fuselage and flapping for hover and cruise for a range of loading conditions were plotted. From the tail force it was possible to obtain a final design for the horizontal stabiliser.
 
@@ -234,7 +235,7 @@ Finally, the vertical stabiliser had to be designed. Unlike a penny-farthing the
 
 %INSERT FANCY FLOWCHART
 %\newpage
-\section{Mass Distribution}
+\section{Weight and Balance}
 \subsection{Mass Breakdown}
 % Describe how mass considerations influenced design process.
 % Table of mass breakdown, pie chart
@@ -302,7 +303,7 @@ The final mass breakdown and key weights can be seen in Figure \ref{fig:pie} and
 	\end{minipage}\hfill
 	\begin{minipage}{0.48\linewidth}
 \centering
-\caption{Moments of Inertia of unloaded aircraft}
+\caption{Moments of Inertia of aircraft}
 		\label{tab:tabinertia}
 \begin{tabular}{cc}
 \hline
@@ -325,9 +326,9 @@ $I_{z_{CG}}$        & 1118.88 \\ \hline
     \label{fig:axis}
   %  \vspace{-510pt}
 \end{wrapfigure}
-The calculation for the moments of inertia assumed point masses for each of the components, located at the best estimate of its centre of mass. The equation used to calculate the mass moment of inertia is in Appendix \ref{eq:izz}.
+The calculation for the moments of inertia assumed point masses for each of the components, located at the best estimate of its centre of mass. The equations used to calculate the mass moment of inertia can be found in Appendix \ref{eq:izz}.
 
-The moments of inertia around each of the 3-axis of the empty helicopter is in Table \ref{tab:tabinertia}. The largest moment of inertia is around the $y$-axis of motion, suggesting that the aircraft will resist pitching motion the most and then the rolling motion, with yawing being the easiest to enact.
+The moments of inertia around each of the 3-axis of the helicopter is in Table \ref{tab:tabinertia}. The largest moment of inertia is around the $y$-axis of motion, suggesting that the aircraft will resist pitching motion the most and then the rolling motion, with yawing being the easiest to enact.
 
 
 \subsection{Centre of Gravity Envelope}
@@ -352,7 +353,7 @@ The longitudinal CG against AUW can be seen in Figure \ref{fig:CG1} and the 3D C
 
 It was found that the CG location when empty lay 3mm forward of the centre of the main shaft and the largest deviation case consisted of 3 passengers, two in the front and one at the rear without any luggage, this is the leftmost point in Figure \ref{fig:CG1}. This resulted in a maximum deviation of 10.5cm forward of the main rotor, which is the preferred direction for stability and is relatively small\cite{prouty}. As can been seen in Figure \ref{fig:CG2}, in all except one case, the CG lies within the 20 cm diameter rotor shaft (shown as the cylindrical shaded region). From this, it is advisable that when loading the aircraft to direct passengers to fill the rear seats first. Lateral ($y$-axis) and vertical ($z$-axis) CG envelopes can be seen in Appendix \ref{fig:CGlat}.
 
-This favourable CG envelope was a result of placing the heaviest components (See mass breakdown in Figure \ref{fig:pie}), such as the transmission, batteries and motors as close to the centre of the cabin as possible. During the design process it became evident that for structural reasons the main rotor would be better placed in the centre of the cabin. This was to ensure the structural member connecting the gearbox to the front of the cabin wasn't prone to buckling, for more details see structures specialisation report. To achieve this, the centre of mass had to be moved forward to be in line with the rotor shaft and so a trade study was drawn up to assess whether moving the heaviest component, the batteries, from it's original position of behind the cabin to below the cabin was the most viable solution. Table \ref{fig:batterypos} shows the outcome of this exercise where it was decided to position the batteries under the cabin floor. . The scoring was conducted through consensus, the higher the score the better that location was for that particular criteria. 
+This favourable CG envelope was a result of placing the heaviest components (See mass breakdown in Figure \ref{fig:pie}), such as the transmission, batteries and motors as close to the centre of the cabin as possible. During the design process it became evident that for structural reasons the main rotor would be better placed in the centre of the cabin. This was to ensure the structural member connecting the gearbox to the front of the cabin wasn't prone to buckling, for more details see structures specialisation report. To achieve this, the centre of mass had to be moved forward to be in line with the rotor shaft and so a trade study was drawn up to assess whether moving the heaviest component, the batteries, from it's original position of behind the cabin to below the cabin was the most viable solution to move the CG forward. Table \ref{fig:batterypos} shows the outcome of this exercise where it was decided to position the batteries under the cabin floor. The scoring was conducted through consensus, the higher the score the better that location was for that particular criteria. 
 
 \begin{table}[H]
     \centering
@@ -381,7 +382,7 @@ Following this, the final skids allow for an on-ground inclination of 37.6 degre
 %-------------------------------------------
 \section{Shaft Tilt and Horizontal Stabiliser}
 \subsection{Overview}
-The aim of this section is to maximise passenger comfort and reduce power consumption through trim and empennage specifications. Increasing passenger comfort can be done by minimising the fuselage pitch deviation from zero in both hover and cruise. Reducing power consumption can be done by minimising the flapping angles.
+The aim of this section is to maximise passenger comfort and reduce power consumption through trim and empennage specifications. Increasing passenger comfort can be done by minimising the fuselage pitch deviation from zero in both hover and cruise. Reducing power consumption can be done by minimising the rotor flapping angles.
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{FBD.PNG}
@@ -391,7 +392,7 @@ The aim of this section is to maximise passenger comfort and reduce power consum
 
 During forward flight the rotor must tilt forward to balance the forces generated by the drag of the fuselage.
 In a typical helicopter with zero shaft tilt and an articulated hub the fuselage would also tilt forward slightly with the rotor disc, with the remainder of the tilt being fulfilled by the rotor flapping angle. 
-However, large fuselage pitch angles are not very comfortable and so it is possible to have the rotor shaft fixed at a forward angle reduce fuselage pitch during cruise. This does have the drawback of increasing the fuselage pitch and flapping angle during hover and so a balance must be struck.
+However, large fuselage pitch angles are not very comfortable and so it is possible to have the rotor shaft fixed at a forward angle to reduce fuselage pitch during cruise. This does have the drawback of increasing the fuselage pitch and flapping angle during hover and so a balance must be struck.
 
 In addition, rotors with a blade hinge offset are able to impart moments onto the aircraft, this hub moment is proportional to the flapping angle and this derivative can be described by Equation \ref{eq:hubmom}:
 \begin{equation}
@@ -400,7 +401,7 @@ In addition, rotors with a blade hinge offset are able to impart moments onto th
 where $e$ is the blade hinge offset ratio\cite{prouty}.
 This is beneficial as it allows the aircraft to counter the moment created by not having a centre of mass exactly below the line of action of the rotor. This means it is able to force the fuselage to stay relatively parallel to the ground even in unfavourable CG conditions, much more so than if there was no hinge offset in which case the aircraft would simply tilt until the CG was directly under the main rotor. In this project, the hinge offset was calculated by the rotor blade and rotor hub specialists so as to reduce resonance and vibration. Details of its determination can be found in those reports.
 
-This effect is mainly helpful during hover, where the only constraint is that the tip path plane of the rotor must remain parallel to the ground allowing the flapping angle to be adjusted to balance the moment from the CG offset, of course the resulting fuselage pitch is highly dependant on shaft tilt. In cruise, the tip path plane has the additional constraint of balancing of forward thrust and drag, meaning that the tip path plane is now angled forward. Now the resulting hub moment may only allow the fuselage to be 'corrected' to a certain degree, again dependant on shaft tilt, meaning that the pitch angle may not be ideal. This is where the addition of a horizontal stabiliser is helpful. A horizontal stabiliser during cruise is able to generate a moment which can work in tandem with the moment of the rotor flapping angle to reduce fuselage pitch.
+This effect is helpful during hover, where the only constraint is that the tip path plane of the rotor must remain parallel to the ground allowing the flapping angle to be adjusted to balance the moment from the CG offset, of course the resulting fuselage pitch is highly dependant on shaft tilt. In cruise, the tip path plane has the additional constraint of balancing of forward thrust and drag, meaning that the tip path plane is now angled forward. Now the resulting hub moment may only allow the fuselage to be 'corrected' to a certain degree, again dependant on shaft tilt, meaning that the pitch angle may not be ideal. This is where the addition of a horizontal stabiliser is helpful. A horizontal stabiliser during cruise is able to generate a moment which can work in tandem with the moment of the rotor to reduce fuselage pitch.
 
 To summarise, the two aircraft specifications that need determining are the rotor shaft tilt ($\gamma$) and the moment generated by the horizontal stabiliser ($M_t$). The effect of these on the resulting fuselage pitch angles ($\theta_f$) in both hover and cruise, and the required flapping angles ($a_{1s}$) also in both hover and cruise need to be analysed and then a method of optimisation needs to be employed to obtain the best compromise of $\gamma$ and $M_t$.
 
@@ -425,12 +426,11 @@ To simplify calculations further, additional assumptions have been made:
     \item Minimum drag condition of fuselage assumed zero pitch.
 \end{itemize}{}
 
-In the absence of full CFD and/or wind tunnel testing, the aerodynamic characteristics of the fuselage have been ignored with the exception of flat plate drag, $D_{f_X}=1.84V^2$, this was obtained using conditions at cruise altitude.
-The location of the horizontal stabiliser has been placed $5$ meters behind the centre of the cabin so that the downwash from the rotors would have a reduced affect. This means that the variable $M_t$ can be reduced to $L_t$ as $M_t=L_t\cdot l_t$. The coning angle of the rotors has been ignored as they do not produce a resultant moment that would affect trim.
+In the absence of full CFD and/or wind tunnel testing, the aerodynamic characteristics of the fuselage have been ignored with the exception of flat plate drag, $D_{f_X}=1.84V^2$, this was obtained using conditions at cruise altitude, i.e 4000ft pressure altitude.
+The location of the horizontal stabiliser has been placed 5 meters behind the centre of the cabin so that the downwash from the rotors would have a reduced affect. This means that the variable $M_t$ can be reduced to $L_t$ as $M_t=L_t\cdot l_t$. The coning angle of the rotors has been ignored as they do not produce a resultant moment that would affect trim.
 
-The equations used can be seen in Appendix \ref{eq:trimeq}\\
-
-
+The trim equations used can be seen in Appendix \ref{eq:trimeq}.
+%
 \subsubsection{Lateral Consideration}
 A note on lateral stability and trim, unlike a penny-farthing a coaxial helicopter does not suffer from the lateral stability issues caused by the presence of a tail rotor, i.e side-slip, gust alleviation issues etc. Therefore, the lateral stability considerations are almost identical to that of longitudinal with the exception of that fact that the requirements in this direction are much reduced, CG positions change very little laterally and rotor flapping has no additional constraints either as the aircraft is not expected to fly sideways at any significant speed.
 It can be said then that if the aircraft performs acceptably longitudinally then lateral stability should not be an issue as lateral flapping angles (flapping would be the aircraft's only way to exert lateral control) would be much less than longitudinal.
@@ -444,7 +444,7 @@ Initially the median CG position was used to obtain initial values, which were t
 
 \subsection{Results}
 
-The maximum and minimum values for pitch angles and flapping angles for both cruise and hover as CG is varied across its range were plotted against shaft angle and tail force. Two surface plots for cruise and two 2D plots for hover, as tail force has no effect on the hover condition, were produced. These can be seen below:
+The maximum and minimum values for pitch angles and flapping angles for both cruise and hover as CG is varied across its range were plotted against shaft angle and tail force. Two surface plots for cruise and two 2D plots for hover, as tail force has no effect on the hover condition, were produced. These can be seen below.
 
 \begin{figure}[H]
 \centering
@@ -535,7 +535,7 @@ The resulting maximum and minimum pitch angles and flapping angles can be seen i
 \end{tabular}
 \label{tab:cgres}
 \end{table}
-From this value of tail force it was possible to obtain the specifications of the horizontal stabiliser. The equation for lift is $L_t=\frac{1}{2}\rho V^2 S_h C_{l_\alpha}(\theta_f+\phi_{setting})$, NACA2410 was chosen based on it's high lift/drag ratio and high $C_{l_\alpha}$. The previous code also included the drag of the stabiliser as the setting angle is varied,for a set $S_h$. This area was decided based on observing existing helicopters' size proportionally to the main rotors. The code produced a setting angle that would be required to fulfil trim. The final specifications can be seen in Table \ref{tab:longfinal}.
+From this value of tail force it was possible to obtain the specifications of the horizontal stabiliser. The equation for lift is $L_t=\frac{1}{2}\rho V^2 S_h C_{l_\alpha}(\theta_f+\phi_{setting})$, NACA2410 was chosen based on it's high lift/drag ratio and high $C_{l_\alpha}$. The previous code also included the drag of the stabiliser as the setting angle is varied for a set $S_h$. This area was decided based on observing existing helicopters' size proportionally to the main rotors. The code produced a setting angle that would be required to fulfil trim. The final specifications can be seen in Table \ref{tab:longfinal}.
 
 \begin{table}[H]
 \centering 
@@ -611,7 +611,7 @@ In a conventional penny-farthing helicopter the vertical stabiliser may be desig
 The design process was to create a dynamic model of the damping effects of the vertical stabiliser, use the model to obtain initial sizing for a desired damping ratio identified from literature, which is approximately 0.45 \cite{prouty}. Basic active rudder control was added to the model for comparison, allowing a decision to be made whether to opt for the actively controlled system or not for a specific damping ratio.
 \subsection{Modelling}
 \subsubsection{Vertical Stabiliser}
-The dynamic model was created using the lift curve slope of NACA0006. The model excludes any effects of the main rotors and damping effect of the fuselage, small angles are assumed. The yaw moment of inertia of the helicopter,$I_{zz}=1118.8 kgm^2$ was used. The quarter-chord of the fin was placed $5m$ behind the CG of the helicopter ($l=5$m) to avoid downwash effects. 
+The dynamic model was created using the lift curve slope of NACA0006. The model excludes any effects of the main rotors and damping effect of the fuselage, small angles are assumed. The yaw moment of inertia of the helicopter, $I_{zz}=1118.8 kgm^2$ was used. The quarter-chord of the fin was placed $5m$ behind the CG of the helicopter ($l=5$m) to avoid downwash effects. 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.9\textwidth]{VertStabdiag.PNG}
@@ -664,8 +664,8 @@ let $A&=\frac{1}{2}\rho V^2 C_L$ and $\psi=\zeta$, therefore
 \begin{equation}
     I_{zz}\ddot{\psi}=A\,l\,\left(2\,S_{R}+\,S_{\mathrm{tp}} \right) \psi+\frac{3\,A\,l^2\,S_{\mathrm{tp}}\,}{V} \dot{\psi} \label{eq:eom2}
 \end{equation}
-\subsection{Results \& Discussion}
-Equations \ref{eq:eom1} and \ref{eq:eom2} were simulated in Matlab and the damping ratios for each were obtained for a range of surface areas. This can be seen in Figure \ref{fig:vstab1}.
+\subsection{Results}
+Equations \ref{eq:eom1} and \ref{eq:eom2} were simulated in Matlab and the damping ratios for each were obtained for a range of surface areas. This can be seen in Figure \ref{fig:vstab1}. While the final specification are in Table \ref{tab:vstab}.
 
 \begin{figure}[H]
 \centering
@@ -682,11 +682,6 @@ Equations \ref{eq:eom1} and \ref{eq:eom2} were simulated in Matlab and the dampi
   \label{fig:vstab2}
 \end{minipage}
 \end{figure}
- As can be seen from Figure \ref{fig:vstab1} the active rudder offers a much greater degree of damping for the same area. The damping was increased by 2.08 times in every case. To obtain the level of damping required, an area of 0.39 m$^2$ was chosen with rudder control. The time response comparison to that of no rudder and the same area can be seen in Figure \ref{fig:vstab2}.
-
-The decision was made to have the vertical stabiliser mounted below the tail, this was to ensure that any lateral force generated by the fin would not induce a large rolling moment as the centre of pressure would be much more in line with the vertical location of CG, this can be seen in the GA. This does mean that the stabiliser could be less effective as it may be in the wake of the fuselage, however, this is less of an issue as it is not expected to be used during normal flying conditions as the aircraft employs differential torque of the rotors as its main method of yaw control. Any disturbance in yaw would increase the exposure of the stabiliser to the air and assist in damping. Another, is the case of auto-rotation, where the velocity vector is downwards meaning the stabiliser will not be blocked by the fuselage and will help in keeping the aircraft facing forward.
-
-In all other cases, the vertical stabiliser is not considered a 'mission critical' surface, meaning it is not absolutely required to maintain normal flight in the case of a coaxial helicopter. It is implemented here to increase passenger comfort and handling.
 \begin{table}[H]
 \centering 
     \caption{Parameters of Vertical Stabiliser}
@@ -702,7 +697,15 @@ In all other cases, the vertical stabiliser is not considered a 'mission critica
 \end{tabular}{}
     \label{tab:vstab}
 \end{table}{}
-Future work may be done to assess the rudder's use as a method of yaw control that may or may not have a energy saving effect by  reducing the role of the main rotors in this. Further, the considerations and assumptions of the models may be improved to allow more accurate data to be produced to better inform the design. Namely, a more realistic control system, effects of the fuselage and rotors during a yaw deflection could be implemented as well as model verification through wind tunnel testing.
+
+\subsection{Discussion}
+ As can be seen from Figure \ref{fig:vstab1} the active rudder offers a much greater degree of damping for the same area. The damping was increased by 2.08 times in every case. To obtain the level of damping required, an area of 0.39 m$^2$ was chosen with rudder control. The time response comparison to that of no rudder and the same area can be seen in Figure \ref{fig:vstab2}, where the improvement is evident.
+
+The decision was made to have the vertical stabiliser mounted below the tail, this was to ensure that any lateral force generated by the fin would not induce a large rolling moment as the centre of pressure would be much more in line with the vertical location of CG, this can be seen in the GA. This does mean that the stabiliser could be less effective as it may be in the wake of the fuselage, however, this is less of an issue as it is not expected to be used during normal flying conditions as the aircraft employs differential torque of the rotors as its main method of yaw control. Any disturbance in yaw would increase the exposure of the stabiliser to the air and assist in damping. Another, is the case of auto-rotation, where the velocity vector is downwards meaning the stabiliser will not be blocked by the fuselage and will help in keeping the aircraft facing the direction of travel.
+
+In all other cases, the vertical stabiliser is not considered a 'mission critical' surface, meaning it is not absolutely required to maintain normal flight in the case of a coaxial helicopter. It is implemented here to increase passenger comfort and handling. The final specification can be seen in Table \ref{tab:vstab}, where an actively controlled rudder is implemented.
+
+Future work may be done to assess the rudder's use as a method of yaw control that may or may not have an energy saving effect by  reducing the role of the main rotors in this. Further, the considerations and assumptions of the models may be improved to allow more accurate data to be produced to better inform the design. Namely, a more realistic control system, effects of the fuselage and rotors during a yaw deflection could be implemented as well as model verification through wind tunnel testing.
 %
 % Summary and Conclusions
 %
@@ -710,9 +713,11 @@ Future work may be done to assess the rudder's use as a method of yaw control th
 % Reflection
 % --------------------
 \section{Summary}
-location of masses, position and tilt of main rotor, active rudder. Is this basically the outputs of the design?
+To summarise, the output of this specialisation was completed to a standard that satisfied the relevant requirements set by Leonardo and also the criteria that was set internally in this report. 
+The mass distribution of components was designed in close relationship with the other specialisations with Centre of Gravity in mind and this yielded a favourable CG envelope. The MTOW of this aircraft was successfully kept well below the limit of CS-27, and the aircraft is able to land in any direction on an incline of 12 degrees due to skid design. The longitudinal trim characteristics lend itself to a comfortable ride with minimal fuselage pitch angles during hover and cruise. The horizontal stabiliser was designed to facilitate these pitch angles, all within $\pm$1.8 degrees of the horizontal. The shaft tilt was also determined in tandem to be $\gamma=-3.86^\circ$. Flapping angles were able to be kept below 6 degrees which minimise energy consumption. 
+The vertical stabiliser was modelled dynamically and the resulting design was able to produce damping ratios similar to those in literature.
+Thus, the final design of shaft tilt, empennage and the production of CG envelopes was completed.
 
-The relevant mass considerations were taken into account to 
 
 
 
@@ -720,9 +725,7 @@ The relevant mass considerations were taken into account to
 This expansive, accelerated design project presented many challenges that required effective team management, clear overall aims and objectives as well as for each team member and constant clear communication throughout. 
 Our team was able to work together well, constantly being able to update each other as to our progress and requirements and to ensure working numbers were up-to-date and consistent. Regular meetings were held where objectives were kept on track and tasks were clearly mapped out and assigned to specific members. It was beneficial for us to work in the same location as it allowed for immediate contact. 
 
-The challenges of minimising weight through battery technology selection, motor selection, drive-train design, rotor design, etc proved to be a lengthy iterative process that benefited greatly from creating tools early-on that could be used to quickly check various aspects of weight and balance, namely CG and weight breakdown and provide immediate feedback to the rest of the team. This allowed every team member to have broad sense of the direction our design was heading mass-wise.
-
-Every major decision was done as a group with the help of trade study tables and listening to all raised points. Constant, clear communication was key.
+The challenges of minimising weight through battery technology selection, motor selection, drive-train design, rotor design, etc proved to be a lengthy iterative process that benefited greatly from creating tools early-on that could be used to quickly check various aspects of weight and balance, namely CG and weight breakdown and provide immediate feedback to the rest of the team. This allowed every team member to have broad sense of the direction our design was heading mass-wise. Every major decision was done as a group with the help of trade study tables and listening to all raised points. Constant, clear communication was key.
 
 The sheer volume of engineering decisions and conflicting requirements of this project exposed the importance of meaningful and justified compromise between and within specialisations. The interface between specialisations were tested and some tasks which had originally been allocated to one role by the university it was found that perhaps another role may be more suited to it. For example, ground resonance, this was the interface between rotor blades and structures and yet was initially allocated to weight and balance, it was decided that the rotor specialists were better suited to this.
 
@@ -734,8 +737,6 @@ Even though the project went through a massive design shift during the PDR stage
 Improvements in the design process could be made by further integrating the specialisations that would directly affect each other. Additionally, the project may have progressed faster if harder decisions were made earlier, instead of circling the various options.
 
 In conclusion, this project was a gauntlet in testing our engineering and team working abilities. Bringing to light the broad engineering challenges that may be faced in industry and forcing us to navigate to a justified working solution as a team.
-
-
 
 %-------------------------------------------------------------------------------
 % REFERENCES
@@ -791,6 +792,14 @@ Payload                        & 550                             \\ \hline
 \end{tabular}
 \label{tab:massb}
 \end{table}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{massbreak.PNG}
+    \caption{Additional Mass breakdown}
+    \label{fig:massb2}
+\end{figure}{}
+
 %
 % CG Envelope in Lateral and Vertical Axis 
 %
